@@ -1,0 +1,50 @@
+﻿@page "/"
+@inherits PageBase
+
+<PageTitle>Check Availability</PageTitle>
+
+<div>
+        <div style="display: flex; ">
+            <div style="display: flex; flex-direction: column">
+            <div style="padding: 7px">
+                <RadzenCard>
+                    <h4 class="mb-4">Select Employees</h4>
+                    <RadzenListBox AllowFiltering="true" FilterCaseSensitivity="FilterCaseSensitivity.CaseInsensitive" @bind-Value="_selectedEmployees" Multiple="true" Data="_employees"
+                                   TextProperty="Name" ValueProperty="Id" Style="height:320px" Class="w-100" />
+                </RadzenCard>
+            </div> 
+            <div style="padding: 7px">
+                <RadzenButton style="width: 200px" IsBusy="_isBusy" Click="OnFindAvailableTimeClick" Text="Find available time" />
+            </div>
+            @if (_availableMeetingTime != null)
+            {
+                <div style="padding: 7px">
+                    <RadzenCard>
+                        <h4 class="mb-4">First available meeting time</h4>
+                        <label>@_availableMeetingTime</label>
+                    </RadzenCard>
+                </div>
+            }
+            </div>
+            <div style="display: flex; flex-direction: column">
+                <div style="padding: 7px">
+                    <RadzenCard>
+                        <h4 class="mb-4">Select Meeting length</h4>
+                        <RadzenDropDown TValue="string" Class="w-100" Data="_meetingLengths" TextProperty="Description" ValueProperty="Value"  @bind-Value="_meetingLength" />
+                    </RadzenCard>
+                </div>
+                <div style="padding: 7px">
+                    <RadzenCard>
+                        <h4 class="mb-4">Select Meeting time of day</h4>
+                        <RadzenDropDown TValue="string" Class="w-100" Data="_meetingTimeOfDays" TextProperty="Description" ValueProperty="Value" @bind-Value="_meetingTimeOfDay" />
+                    </RadzenCard>
+                </div>
+                <div style="padding: 7px">
+                    <RadzenCard>
+                        <h4 class="mb-4">Select Meeting date</h4>
+                        <RadzenDatePicker DateFormat="d" Min="_meetingDateFrom" Max="_meetingDateTo" TValue="DateTime?" Class="w-100" @bind-Value="_meetingDate" />
+                    </RadzenCard>
+                </div>
+            </div>
+        </div>
+</div>

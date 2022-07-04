@@ -30,3 +30,44 @@
 *.exe
 *.out
 *.app
+
+# ReSharper is a .NET coding add-in
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+*.DotSettings
+
+# Build results
+[Dd]ebug*/
+[Rr]elease*/
+bin/
+obj/
+
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+.DS_Store
+
+# Roslyn cache directories
+*.ide/
+
+# DotCover is a Code Coverage Tool
+*.dotCover
+
+# NuGet Packages Directory
+packages/*
+
+# Wixobj
+*.wixobj
+
+# Visual Studio mm
+.vs/
+.vscode/
+
+.pytest_cache/
+.pytest_cache
+.idea
+*.pyc
+
+ - Backup.csproj
